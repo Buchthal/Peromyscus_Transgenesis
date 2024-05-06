@@ -1,0 +1,16 @@
+[Unit]
+Description=Timelapse
+StartLimitIntervalSec=400
+StartLimitBurst=3
+
+[Service]
+Type=exec
+User=pi
+ExecStart=/usr/bin/bash /home/pi/image_capture_timelapse.sh 4 600 >> /home/pi/image_capture_timelapse_log.txt 2>&1
+RuntimeMaxSec=infinity
+Restart=always
+RestartSec=90
+ExecStartPre=/bin/sleep 30
+
+[Install]
+WantedBy=multi-user.target
