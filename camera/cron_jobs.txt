@@ -1,0 +1,4 @@
+*/2 * * * * /usr/bin/bash /home/pi/ip_upload.sh >> /home/pi/cronlog.txt 2>&1
+*/10 * * * * /usr/bin/bash /home/pi/restart_services_if_down.sh > /dev/null 2>&1
+@reboot /usr/bin/bash /home/pi/on_reboot.sh >> /home/pi/setup_log.txt 2>&1
+*/2 * * * * . /home/pi/.profile; /usr/bin/python /home/pi/upload_stills.py --look-back 120 >> /home/pi/still-uploader-log.txt 2>&1
